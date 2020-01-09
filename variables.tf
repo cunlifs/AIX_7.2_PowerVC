@@ -24,4 +24,7 @@ variable "image_id_password" {
   description = "The password of the username to SSH into image ID"
 }
 
+variable "number_of_instances" {
+  description = "Number of instances"
+}
 
