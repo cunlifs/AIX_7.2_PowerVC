@@ -1,0 +1,150 @@
+{
+  "output_datatype": "content_template_output",
+  "input_datatypes": [ ],
+  "input_namespaces": [ ],
+  "output_namespace": "",
+  "input_groups": [
+    {
+      "name": "cloud",
+      "label": "Cloud Input Variables"
+    },
+    {
+      "name": "virtualmachine",
+      "label": "Virtual Machine Input Variables"
+    },
+    {
+      "name": "ssh_keys",
+      "label": "SSH Keys"
+    },
+    {
+      "name": "environment",
+      "label": "Environment"
+    }
+  ],
+  "output_groups": [  {
+    "name": "content_template_output",
+    "label": "Outputs"
+  } ],
+  "template_input_params": [
+    {
+      "name": "openstack_image_name",
+      "label": "Openstack Image name",
+      "description": "The name of the image to be used for deploy operations.",
+      "type": "string",
+      "default": "AIX 7.2 TL2 SP1",
+      "validation": "",
+      "group_name": "virtualmachine",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "openstack_flavor_name",
+      "label": "Openstack Flavor name",
+      "description": "The name of the flavor to be used for deploy operations.",
+      "type": "string",
+      "default": "tiny",
+      "validation": "",
+      "group_name": "virtualmachine",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "openstack_network_name",
+      "label": "Openstack Network Name",
+      "description": "The name of the network to be used for deploy operations.",
+      "type": "string",
+      "default": "VLAN 156",
+      "validation": "",
+      "group_name": "virtualmachine",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "openstack_IP_address",
+      "label": "Openstack Network IP Address",
+      "description": "Optional specific IPV4 Address to be used for deploy.",
+      "type": "string",
+      "default": "",
+      "validation": "",
+      "group_name": "virtualmachine",
+      "required": false,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "image_id_username",
+      "label": "Openstack Image Username",
+      "description": "The username to SSH into image ID",
+      "type": "string",
+      "default": "root",
+      "validation": "",
+      "group_name": "virtualmachine",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "image_id_password",
+      "label": "Openstack Image Password",
+      "description": "The password of the username to SSH into image ID",
+      "type": "password",
+      "default": "abc1234",
+      "validation": "",
+      "group_name": "virtualmachine",
+      "required": true,
+      "secured": true,
+      "hidden": true,
+      "immutable": true,
+      "immutable_after_create": false
+    },
+    {
+      "name": "number_of_instances",
+      "label": "Number of Instances to deploy",
+      "description": "The number of instances to provision.",
+      "type": "string",
+      "default": "1",
+      "validation": "",
+      "group_name": "virtualmachine",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": true,
+      "immutable_after_create": false
+    }
+  ],
+  "template_output_params": [
+    {
+      "name": "single-vm-ip",
+      "label": "IP Addresss of Virtual Machine",
+      "description": "The Public IPV4 address",
+      "group_name": "content_template_output",
+      "secured": false,
+      "hidden": false,
+      "shortname": "",
+      "type": "string"
+    },
+    {
+      "name": "single-vm-name",
+      "label": "Name of Virtual Machine",
+      "description": "VM Name used during deployment",
+      "group_name": "content_template_output",
+      "secured": false,
+      "hidden": false,
+      "shortname": "",
+      "type": "string"
+    }
+  ]
+}
