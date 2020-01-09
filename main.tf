@@ -10,8 +10,6 @@ provider "openstack" {
   insecure = true
 }
 
-variable "number_of_instances" {}
-
 resource "random_id" "rand" {
     byte_length = 2
 }
