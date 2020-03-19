@@ -1,9 +1,8 @@
 ################################################################
-# S Cunliffe - Jan 2020
+# S Cunliffe - March 2020
 # v1.0.0 Initial configuration 
-# v1.0.1 Automated VM name & output VM name
 ################################################################
-# Module to deploy Single VM
+# Module to deploy Single AIX VM with DB2
 ################################################################
 
 provider "openstack" {
@@ -14,9 +13,9 @@ resource "random_id" "rand" {
     byte_length = 2
 }
 
-resource "openstack_compute_instance_v2" "single-vm" {
+resource "openstack_compute_instance_v2" "db2-vm" {
   count     = "${var.number_of_instances}"
-  name      = "${format("aix-vm-${random_id.rand.hex}-%02d", count.index+1)}"
+  name      = "${format("db2-vm-${random_id.rand.hex}-%02d", count.index+1)}"
   image_name  = "${var.openstack_image_name}"
   flavor_name = "${var.openstack_flavor_name}"
 
