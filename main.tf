@@ -13,7 +13,7 @@ resource "random_id" "rand" {
     byte_length = 2
 }
 
-resource "openstack_compute_instance_v2" "aix-vm" {
+resource "openstack_compute_instance_v2" "single-vm" {
   count     = "${var.number_of_instances}"
   name      = "${format("aix-demo-${random_id.rand.hex}-%02d", count.index+1)}"
   image_name  = "${var.openstack_image_name}"
