@@ -2,7 +2,7 @@
 # S Cunliffe - March 2020
 # v1.0.0 Initial configuration 
 ################################################################
-# Module to deploy Single AIX VM with DB2
+# Module to deploy Single AIX VM 
 ################################################################
 
 provider "openstack" {
@@ -13,9 +13,9 @@ resource "random_id" "rand" {
     byte_length = 2
 }
 
-resource "openstack_compute_instance_v2" "db2-vm" {
+resource "openstack_compute_instance_v2" "aix-vm" {
   count     = "${var.number_of_instances}"
-  name      = "${format("db2-vm-${random_id.rand.hex}-%02d", count.index+1)}"
+  name      = "${format("aix-demo-${random_id.rand.hex}-%02d", count.index+1)}"
   image_name  = "${var.openstack_image_name}"
   flavor_name = "${var.openstack_flavor_name}"
 
